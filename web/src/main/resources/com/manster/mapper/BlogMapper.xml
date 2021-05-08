@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.manster.mapper.BlogMapper">
+
+        <resultMap id="blogvo" type="com.manster.vo.BlogVO">
+            <id property="id" column="id"/>
+            <result property="title" column="title"/>
+            <result property="content" column="content"/>
+            <result property="firstPicture" column="first_picture"/>
+            <result property="flag" column="flag"/>
+            <result property="views" column="views"/>
+            <result property="appreciation" column="appreciation"/>
+            <result property="shareStatement" column="share_statement"/>
+            <result property="commentabled" column="commentabled"/>
+            <result property="published" column="published"/>
+            <result property="recommend" column="recommend"/>
+            <result property="createTime" column="create_time"/>
+            <result property="updateTime" column="update_time"/>
+            <result property="typeId" column="type_id"/>
+            <result property="userId" column="user_id"/>
+            <result property="description" column="description"/>
+            <result property="tagIds" column="tag_ids"/>
+            <association property="type" javaType="com.manster.pojo.Type">
+                <id property="id" column="typeid"/>
+                <result property="name" column="typename"/>
+            </association>
+            <association property="user" javaType="com.manster.pojo.User">
+                <id property="id" column="uid"/>
+                <result property="nickname" column="nickname"/>
+                <result property="username" column="username"/>
+                <result property="email" column="email"/>
+                <result property="avatar" column="avatar"/>
+            </association>
+            <collection property="tags" ofType="com.manster.pojo.Tag">
+                <id property="id" column="tagid"/>
+                <result property="name" column="tagname"/>
+            </collection>
+        </resultMap>
+
+        <select id="listBlog" resultMap="blogvo">
+            select b.id id,
+            b.title title,
+            b.first_picture first_picture,
+            b.views views,
+            b.update_time update_time,
+            b.recommend recommend,
+            b.published published,
+            b.type_id type_id,
+            b.user_id userId,
+            b.description description,
+            t.id typeid,
+            t.name typename,
+            u.id uid,
+            u.nickname nickname,
+            u.avatar avatar
+            from t_blog b, t_type t, t_user u
+            where b.type_id = t.id
+                and b.user_id = u.id
+                and b.published = 1
+        </select>
+
+        <select id="listSearchBlog" resultMap="blogvo">
+            select b.id id,
+                   b.title title,
+                   b.first_picture first_picture,
+                   b.views views,
+                   b.update_time update_time,
+                   b.recommend recommend,
+                   b.published published,
+                   b.type_id type_id,
+                   b.user_id userId,
+                   b.description description,
+                   t.id typeid,
+                   t.name typename,
+                   u.id uid,
+                   u.nickname nickname,
+                   u.avatar avatar
+            from t_blog b, t_type t, t_user u
+            where (b.title like concat ('%',#{query},'%')
+               or b.description like concat ('%',#{query},'%'))
+              and b.type_id = t.id
+              and b.user_id = u.id
+              and b.published = 1
+        </select>
+
+        <select id="listBlogByType" resultMap="blogvo">
+            select b.id id,
+                   b.title title,
+                   b.first_picture first_picture,
+                   b.views views,
+                   b.update_time update_time,
+                   b.recommend recommend,
+                   b.published published,
+                   b.type_id type_id,
+                   b.user_id userId,
+                   b.description description,
+                   t.id typeid,
+                   t.name typename,
+                   u.id uid,
+                   u.nickname nickname,
+                   u.avatar avatar
+            from t_blog b, t_type t, t_user u
+            where b.type_id = t.id
+              and b.user_id = u.id
+              and b.published = 1
+              and t.id = #{id}
+        </select>
+
+        <select id="getBlogVO" resultMap="blogvo">
+            select b.id id,
+                   b.title title,
+                   b.content content,
+                   b.first_picture first_picture,
+                   b.flag flag,
+                   b.views views,
+                   b.appreciation appreciation,
+                   b.share_statement share_statement,
+                   b.commentabled commentabled,
+                   b.update_time update_time,
+                   b.recommend recommend,
+                   b.published published,
+                   b.type_id type_id,
+                   b.user_id userId,
+                   t.id typeid,
+                   t.name typename,
+                   u.id uid,
+                   u.nickname nickname,
+                   u.avatar avatar
+            from t_blog b, t_type t, t_user u
+            where b.id = #{id}
+              and b.type_id = t.id
+              and b.user_id = u.id
+        </select>
+
+        <update id="addViews">
+            update t_blog
+            set views = views + 1
+            where id = #{id}
+        </update>
+
+        <select id="getGroupYears" resultType="java.lang.String">
+            select date_format(b.update_time, '%Y') as year
+            from t_blog b
+            group by year
+            order by year desc;
+        </select>
+
+        <select id="getBlogByYear" resultType="com.manster.pojo.Blog">
+            select b.id  id,
+                b.title title,
+                b.update_time updateTime,
+                b.flag flag
+            from t_blog b
+            where date_format(b.update_time, '%Y') = #{year};
+        </select>
+
+        <select id="selectNewBlogs" resultType="com.manster.pojo.Blog">
+            select b.id  id,
+                b.title title
+            from t_blog b
+            where published = 1
+            order by update_time desc
+            limit 3
+        </select>
+</mapper>
+

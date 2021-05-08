@@ -1,0 +1,655 @@
+2021-05-08 09:21:51.192  INFO 16960 --- [restartedMain] com.manster.WebApplication               : Starting WebApplication using Java 1.8.0_201 on LAPTOP-2OEBBGKT with PID 16960 (G:\git\mansterblog\web\target\classes started by hp in G:\git\mansterblog)
+2021-05-08 09:21:51.196 DEBUG 16960 --- [restartedMain] com.manster.WebApplication               : Running with Spring Boot v2.4.5, Spring v5.3.6
+2021-05-08 09:21:51.197  INFO 16960 --- [restartedMain] com.manster.WebApplication               : The following profiles are active: dev
+2021-05-08 09:21:51.390  INFO 16960 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-08 09:21:51.390  INFO 16960 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-08 09:21:54.157  INFO 16960 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-05-08 09:21:54.186  INFO 16960 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-08 09:21:54.186  INFO 16960 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-08 09:21:54.199  INFO 16960 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2021-05-08 09:21:54.199  INFO 16960 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-05-08 09:21:54.199  INFO 16960 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-05-08 09:21:54.259  INFO 16960 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2021-05-08 09:21:54.352  INFO 16960 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-05-08 09:21:54.352  INFO 16960 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2961 ms
+2021-05-08 09:21:54.561  INFO 16960 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2021-05-08 09:21:55.272  INFO 16960 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-05-08 09:21:56.983  INFO 16960 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-08 09:21:57.098  INFO 16960 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-05-08 09:21:57.768  INFO 16960 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-05-08 09:21:57.826  INFO 16960 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2021-05-08 09:21:57.833  INFO 16960 --- [restartedMain] com.manster.WebApplication               : Started WebApplication in 7.861 seconds (JVM running for 9.594)
+2021-05-08 09:22:03.381  INFO 16960 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-08 09:22:03.381  INFO 16960 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-05-08 09:22:03.382  INFO 16960 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-05-08 09:22:03.464  INFO 16960 --- [http-nio-8888-exec-1] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.IndexController.index', args=[1, {}]}
+2021-05-08 09:22:03.602 DEBUG 16960 --- [http-nio-8888-exec-1] c.m.mapper.BlogMapper.listBlog_mpCount   : ==>  Preparing: SELECT COUNT(*) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND b.user_id = u.id AND b.published = 1
+2021-05-08 09:22:03.649 DEBUG 16960 --- [http-nio-8888-exec-1] c.m.mapper.BlogMapper.listBlog_mpCount   : ==> Parameters: 
+2021-05-08 09:22:03.688 DEBUG 16960 --- [http-nio-8888-exec-1] c.m.mapper.BlogMapper.listBlog_mpCount   : <==      Total: 1
+2021-05-08 09:22:03.694 DEBUG 16960 --- [http-nio-8888-exec-1] com.manster.mapper.BlogMapper.listBlog   : ==>  Preparing: select b.id id, b.title title, b.first_picture first_picture, b.views views, b.update_time update_time, b.recommend recommend, b.published published, b.type_id type_id, b.user_id userId, b.description description, t.id typeid, t.name typename, u.id uid, u.nickname nickname, u.avatar avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and b.user_id = u.id and b.published = 1 LIMIT ?
+2021-05-08 09:22:03.695 DEBUG 16960 --- [http-nio-8888-exec-1] com.manster.mapper.BlogMapper.listBlog   : ==> Parameters: 5(Long)
+2021-05-08 09:22:03.701 DEBUG 16960 --- [http-nio-8888-exec-1] com.manster.mapper.BlogMapper.listBlog   : <==      Total: 5
+2021-05-08 09:22:03.720 DEBUG 16960 --- [http-nio-8888-exec-1] c.manster.mapper.BlogMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM t_blog
+2021-05-08 09:22:03.720 DEBUG 16960 --- [http-nio-8888-exec-1] c.manster.mapper.BlogMapper.selectCount  : ==> Parameters: 
+2021-05-08 09:22:03.722 DEBUG 16960 --- [http-nio-8888-exec-1] c.manster.mapper.BlogMapper.selectCount  : <==      Total: 1
+2021-05-08 09:22:03.726 DEBUG 16960 --- [http-nio-8888-exec-1] c.manster.mapper.TypeMapper.listTypeVO   : ==>  Preparing: select t.id id, t.name name, b.id bid, b.type_id typeId from t_type t left join t_blog b on t.id = b.type_id
+2021-05-08 09:22:03.726 DEBUG 16960 --- [http-nio-8888-exec-1] c.manster.mapper.TypeMapper.listTypeVO   : ==> Parameters: 
+2021-05-08 09:22:03.729 DEBUG 16960 --- [http-nio-8888-exec-1] c.manster.mapper.TypeMapper.listTypeVO   : <==      Total: 10
+2021-05-08 09:22:03.732 DEBUG 16960 --- [http-nio-8888-exec-1] com.manster.mapper.TagMapper.listTagVO   : ==>  Preparing: select t.id id, t.name name, b.id bid from t_tag t, t_blog_tags bt, t_blog b where t.id = bt.tag_id and bt.blog_id = b.id;
+2021-05-08 09:22:03.732 DEBUG 16960 --- [http-nio-8888-exec-1] com.manster.mapper.TagMapper.listTagVO   : ==> Parameters: 
+2021-05-08 09:22:03.735 DEBUG 16960 --- [http-nio-8888-exec-1] com.manster.mapper.TagMapper.listTagVO   : <==      Total: 9
+2021-05-08 09:22:03.768 DEBUG 16960 --- [http-nio-8888-exec-1] c.manster.mapper.BlogMapper.selectList   : ==>  Preparing: SELECT id,title,content,first_picture,flag,views,appreciation,share_statement,commentabled,published,recommend,create_time,update_time,type_id,user_id,description,tag_ids FROM t_blog WHERE (published = ? AND recommend = ?)
+2021-05-08 09:22:03.768 DEBUG 16960 --- [http-nio-8888-exec-1] c.manster.mapper.BlogMapper.selectList   : ==> Parameters: 1(Integer), 1(Integer)
+2021-05-08 09:22:03.771 DEBUG 16960 --- [http-nio-8888-exec-1] c.manster.mapper.BlogMapper.selectList   : <==      Total: 5
+2021-05-08 09:22:03.772  INFO 16960 --- [http-nio-8888-exec-1] com.manster.aspect.LogAspect             : Result : index
+2021-05-08 09:22:04.797  INFO 16960 --- [http-nio-8888-exec-5] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.IndexController.newblog', args=[{}]}
+2021-05-08 09:22:04.799 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.BlogMapper.selectNewBlogs     : ==>  Preparing: select b.id id, b.title title from t_blog b where published = 1 order by update_time desc limit 3
+2021-05-08 09:22:04.800 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.BlogMapper.selectNewBlogs     : ==> Parameters: 
+2021-05-08 09:22:04.801 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.BlogMapper.selectNewBlogs     : <==      Total: 3
+2021-05-08 09:22:04.801  INFO 16960 --- [http-nio-8888-exec-5] com.manster.aspect.LogAspect             : Result : blogfragments :: newbloglist
+2021-05-08 09:23:08.131  INFO 16960 --- [http-nio-8888-exec-9] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/blog/5', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.BlogController.blog', args=[5, {}]}
+2021-05-08 09:23:08.156 DEBUG 16960 --- [http-nio-8888-exec-9] com.manster.mapper.BlogMapper.addViews   : ==>  Preparing: update t_blog set views = views + 1 where id = ?
+2021-05-08 09:23:08.157 DEBUG 16960 --- [http-nio-8888-exec-9] com.manster.mapper.BlogMapper.addViews   : ==> Parameters: 5(Long)
+2021-05-08 09:23:08.159 DEBUG 16960 --- [http-nio-8888-exec-9] com.manster.mapper.BlogMapper.addViews   : <==    Updates: 1
+2021-05-08 09:23:08.161 DEBUG 16960 --- [http-nio-8888-exec-9] com.manster.mapper.BlogMapper.getBlogVO  : ==>  Preparing: select b.id id, b.title title, b.content content, b.first_picture first_picture, b.flag flag, b.views views, b.appreciation appreciation, b.share_statement share_statement, b.commentabled commentabled, b.update_time update_time, b.recommend recommend, b.published published, b.type_id type_id, b.user_id userId, t.id typeid, t.name typename, u.id uid, u.nickname nickname, u.avatar avatar from t_blog b, t_type t, t_user u where b.id = ? and b.type_id = t.id and b.user_id = u.id
+2021-05-08 09:23:08.161 DEBUG 16960 --- [http-nio-8888-exec-9] com.manster.mapper.BlogMapper.getBlogVO  : ==> Parameters: 5(Long)
+2021-05-08 09:23:08.164 DEBUG 16960 --- [http-nio-8888-exec-9] com.manster.mapper.BlogMapper.getBlogVO  : <==      Total: 1
+2021-05-08 09:23:08.294  INFO 16960 --- [http-nio-8888-exec-9] com.manster.aspect.LogAspect             : Result : blog
+2021-05-08 09:23:08.767  INFO 16960 --- [http-nio-8888-exec-9] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.IndexController.newblog', args=[{}]}
+2021-05-08 09:23:08.775 DEBUG 16960 --- [http-nio-8888-exec-9] c.m.mapper.BlogMapper.selectNewBlogs     : ==>  Preparing: select b.id id, b.title title from t_blog b where published = 1 order by update_time desc limit 3
+2021-05-08 09:23:08.776 DEBUG 16960 --- [http-nio-8888-exec-9] c.m.mapper.BlogMapper.selectNewBlogs     : ==> Parameters: 
+2021-05-08 09:23:08.777 DEBUG 16960 --- [http-nio-8888-exec-9] c.m.mapper.BlogMapper.selectNewBlogs     : <==      Total: 3
+2021-05-08 09:23:08.777  INFO 16960 --- [http-nio-8888-exec-9] com.manster.aspect.LogAspect             : Result : blogfragments :: newbloglist
+2021-05-08 09:23:09.069  INFO 16960 --- [http-nio-8888-exec-5] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/comments/5', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.CommentController.comments', args=[5, {}]}
+2021-05-08 09:23:09.078 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectList      : ==>  Preparing: SELECT id,nickname,email,content,avatar,create_time,blog_id,parent_comment_id,admin_comment FROM t_comment WHERE (blog_id = ?) ORDER BY create_time ASC
+2021-05-08 09:23:09.078 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectList      : ==> Parameters: 5(Long)
+2021-05-08 09:23:09.080 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectList      : <==      Total: 5
+2021-05-08 09:23:09.086 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : ==>  Preparing: SELECT id,nickname,email,content,avatar,create_time,blog_id,parent_comment_id,admin_comment FROM t_comment WHERE id=?
+2021-05-08 09:23:09.087 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : ==> Parameters: 3(Long)
+2021-05-08 09:23:09.089 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : <==      Total: 1
+2021-05-08 09:23:09.093 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : ==>  Preparing: SELECT id,nickname,email,content,avatar,create_time,blog_id,parent_comment_id,admin_comment FROM t_comment WHERE id=?
+2021-05-08 09:23:09.094 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : ==> Parameters: 1(Long)
+2021-05-08 09:23:09.097 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : <==      Total: 1
+2021-05-08 09:23:09.101 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : ==>  Preparing: SELECT id,nickname,email,content,avatar,create_time,blog_id,parent_comment_id,admin_comment FROM t_comment WHERE id=?
+2021-05-08 09:23:09.103 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : ==> Parameters: 3(Long)
+2021-05-08 09:23:09.105 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : <==      Total: 1
+2021-05-08 09:23:09.110 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : ==>  Preparing: SELECT id,nickname,email,content,avatar,create_time,blog_id,parent_comment_id,admin_comment FROM t_comment WHERE id=?
+2021-05-08 09:23:09.110 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : ==> Parameters: 1(Long)
+2021-05-08 09:23:09.113 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : <==      Total: 1
+2021-05-08 09:23:09.119 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : ==>  Preparing: SELECT id,nickname,email,content,avatar,create_time,blog_id,parent_comment_id,admin_comment FROM t_comment WHERE id=?
+2021-05-08 09:23:09.121 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : ==> Parameters: 1(Long)
+2021-05-08 09:23:09.123 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : <==      Total: 1
+2021-05-08 09:23:09.129 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : ==>  Preparing: SELECT id,nickname,email,content,avatar,create_time,blog_id,parent_comment_id,admin_comment FROM t_comment WHERE id=?
+2021-05-08 09:23:09.130 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : ==> Parameters: 3(Long)
+2021-05-08 09:23:09.133 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : <==      Total: 1
+2021-05-08 09:23:09.140 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : ==>  Preparing: SELECT id,nickname,email,content,avatar,create_time,blog_id,parent_comment_id,admin_comment FROM t_comment WHERE id=?
+2021-05-08 09:23:09.141 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : ==> Parameters: 1(Long)
+2021-05-08 09:23:09.144 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.CommentMapper.selectById      : <==      Total: 1
+2021-05-08 09:23:09.147  INFO 16960 --- [http-nio-8888-exec-5] com.manster.aspect.LogAspect             : Result : blog :: commentList
+2021-05-08 09:25:27.834  INFO 16960 --- [http-nio-8888-exec-3] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.TypeController.types', args=[-1, 1, {}]}
+2021-05-08 09:25:27.841 DEBUG 16960 --- [http-nio-8888-exec-3] c.manster.mapper.TypeMapper.listTypeVO   : ==>  Preparing: select t.id id, t.name name, b.id bid, b.type_id typeId from t_type t left join t_blog b on t.id = b.type_id
+2021-05-08 09:25:27.842 DEBUG 16960 --- [http-nio-8888-exec-3] c.manster.mapper.TypeMapper.listTypeVO   : ==> Parameters: 
+2021-05-08 09:25:27.843 DEBUG 16960 --- [http-nio-8888-exec-3] c.manster.mapper.TypeMapper.listTypeVO   : <==      Total: 10
+2021-05-08 09:25:27.858 DEBUG 16960 --- [http-nio-8888-exec-3] c.m.m.BlogMapper.listBlogByType_mpCount  : ==>  Preparing: SELECT COUNT(*) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND b.user_id = u.id AND b.published = 1 AND t.id = ?
+2021-05-08 09:25:27.859 DEBUG 16960 --- [http-nio-8888-exec-3] c.m.m.BlogMapper.listBlogByType_mpCount  : ==> Parameters: 1(Long)
+2021-05-08 09:25:27.861 DEBUG 16960 --- [http-nio-8888-exec-3] c.m.m.BlogMapper.listBlogByType_mpCount  : <==      Total: 1
+2021-05-08 09:25:27.865 DEBUG 16960 --- [http-nio-8888-exec-3] c.manster.mapper.BlogMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM t_blog WHERE (type_id = ?)
+2021-05-08 09:25:27.865 DEBUG 16960 --- [http-nio-8888-exec-3] c.manster.mapper.BlogMapper.selectCount  : ==> Parameters: 1(Long)
+2021-05-08 09:25:27.867 DEBUG 16960 --- [http-nio-8888-exec-3] c.manster.mapper.BlogMapper.selectCount  : <==      Total: 1
+2021-05-08 09:25:27.868  INFO 16960 --- [http-nio-8888-exec-3] com.manster.aspect.LogAspect             : Result : types
+2021-05-08 09:25:28.205  INFO 16960 --- [http-nio-8888-exec-8] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.IndexController.newblog', args=[{}]}
+2021-05-08 09:25:28.209 DEBUG 16960 --- [http-nio-8888-exec-8] c.m.mapper.BlogMapper.selectNewBlogs     : ==>  Preparing: select b.id id, b.title title from t_blog b where published = 1 order by update_time desc limit 3
+2021-05-08 09:25:28.209 DEBUG 16960 --- [http-nio-8888-exec-8] c.m.mapper.BlogMapper.selectNewBlogs     : ==> Parameters: 
+2021-05-08 09:25:28.210 DEBUG 16960 --- [http-nio-8888-exec-8] c.m.mapper.BlogMapper.selectNewBlogs     : <==      Total: 3
+2021-05-08 09:25:28.210  INFO 16960 --- [http-nio-8888-exec-8] com.manster.aspect.LogAspect             : Result : blogfragments :: newbloglist
+2021-05-08 09:25:29.700  INFO 16960 --- [http-nio-8888-exec-5] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/types/2', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.TypeController.types', args=[2, 1, {}]}
+2021-05-08 09:25:29.704 DEBUG 16960 --- [http-nio-8888-exec-5] c.manster.mapper.TypeMapper.listTypeVO   : ==>  Preparing: select t.id id, t.name name, b.id bid, b.type_id typeId from t_type t left join t_blog b on t.id = b.type_id
+2021-05-08 09:25:29.704 DEBUG 16960 --- [http-nio-8888-exec-5] c.manster.mapper.TypeMapper.listTypeVO   : ==> Parameters: 
+2021-05-08 09:25:29.706 DEBUG 16960 --- [http-nio-8888-exec-5] c.manster.mapper.TypeMapper.listTypeVO   : <==      Total: 10
+2021-05-08 09:25:29.711 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.m.BlogMapper.listBlogByType_mpCount  : ==>  Preparing: SELECT COUNT(*) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND b.user_id = u.id AND b.published = 1 AND t.id = ?
+2021-05-08 09:25:29.711 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.m.BlogMapper.listBlogByType_mpCount  : ==> Parameters: 2(Long)
+2021-05-08 09:25:29.712 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.m.BlogMapper.listBlogByType_mpCount  : <==      Total: 1
+2021-05-08 09:25:29.713 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.BlogMapper.listBlogByType     : ==>  Preparing: select b.id id, b.title title, b.first_picture first_picture, b.views views, b.update_time update_time, b.recommend recommend, b.published published, b.type_id type_id, b.user_id userId, b.description description, t.id typeid, t.name typename, u.id uid, u.nickname nickname, u.avatar avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and b.user_id = u.id and b.published = 1 and t.id = ? LIMIT ?
+2021-05-08 09:25:29.714 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.BlogMapper.listBlogByType     : ==> Parameters: 2(Long), 5(Long)
+2021-05-08 09:25:29.716 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.BlogMapper.listBlogByType     : <==      Total: 3
+2021-05-08 09:25:29.721 DEBUG 16960 --- [http-nio-8888-exec-5] c.manster.mapper.BlogMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM t_blog WHERE (type_id = ?)
+2021-05-08 09:25:29.721 DEBUG 16960 --- [http-nio-8888-exec-5] c.manster.mapper.BlogMapper.selectCount  : ==> Parameters: 2(Long)
+2021-05-08 09:25:29.722 DEBUG 16960 --- [http-nio-8888-exec-5] c.manster.mapper.BlogMapper.selectCount  : <==      Total: 1
+2021-05-08 09:25:29.722  INFO 16960 --- [http-nio-8888-exec-5] com.manster.aspect.LogAspect             : Result : types
+2021-05-08 09:25:30.000  INFO 16960 --- [http-nio-8888-exec-6] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.IndexController.newblog', args=[{}]}
+2021-05-08 09:25:30.003 DEBUG 16960 --- [http-nio-8888-exec-6] c.m.mapper.BlogMapper.selectNewBlogs     : ==>  Preparing: select b.id id, b.title title from t_blog b where published = 1 order by update_time desc limit 3
+2021-05-08 09:25:30.003 DEBUG 16960 --- [http-nio-8888-exec-6] c.m.mapper.BlogMapper.selectNewBlogs     : ==> Parameters: 
+2021-05-08 09:25:30.004 DEBUG 16960 --- [http-nio-8888-exec-6] c.m.mapper.BlogMapper.selectNewBlogs     : <==      Total: 3
+2021-05-08 09:25:30.005  INFO 16960 --- [http-nio-8888-exec-6] com.manster.aspect.LogAspect             : Result : blogfragments :: newbloglist
+2021-05-08 09:27:13.143  INFO 16960 --- [http-nio-8888-exec-8] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.ArchiveController.archives', args=[{}]}
+2021-05-08 09:27:13.149 DEBUG 16960 --- [http-nio-8888-exec-8] c.m.mapper.BlogMapper.getGroupYears      : ==>  Preparing: select date_format(b.update_time, '%Y') as year from t_blog b group by year order by year desc;
+2021-05-08 09:27:13.149 DEBUG 16960 --- [http-nio-8888-exec-8] c.m.mapper.BlogMapper.getGroupYears      : ==> Parameters: 
+2021-05-08 09:27:13.151 DEBUG 16960 --- [http-nio-8888-exec-8] c.m.mapper.BlogMapper.getGroupYears      : <==      Total: 2
+2021-05-08 09:27:13.154 DEBUG 16960 --- [http-nio-8888-exec-8] c.m.mapper.BlogMapper.getBlogByYear      : ==>  Preparing: select b.id id, b.title title, b.update_time updateTime, b.flag flag from t_blog b where date_format(b.update_time, '%Y') = ?;
+2021-05-08 09:27:13.154 DEBUG 16960 --- [http-nio-8888-exec-8] c.m.mapper.BlogMapper.getBlogByYear      : ==> Parameters: 2021(String)
+2021-05-08 09:27:13.156 DEBUG 16960 --- [http-nio-8888-exec-8] c.m.mapper.BlogMapper.getBlogByYear      : <==      Total: 3
+2021-05-08 09:27:13.160 DEBUG 16960 --- [http-nio-8888-exec-8] c.m.mapper.BlogMapper.getBlogByYear      : ==>  Preparing: select b.id id, b.title title, b.update_time updateTime, b.flag flag from t_blog b where date_format(b.update_time, '%Y') = ?;
+2021-05-08 09:27:13.161 DEBUG 16960 --- [http-nio-8888-exec-8] c.m.mapper.BlogMapper.getBlogByYear      : ==> Parameters: 2020(String)
+2021-05-08 09:27:13.162 DEBUG 16960 --- [http-nio-8888-exec-8] c.m.mapper.BlogMapper.getBlogByYear      : <==      Total: 2
+2021-05-08 09:27:13.167 DEBUG 16960 --- [http-nio-8888-exec-8] c.manster.mapper.BlogMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM t_blog
+2021-05-08 09:27:13.167 DEBUG 16960 --- [http-nio-8888-exec-8] c.manster.mapper.BlogMapper.selectCount  : ==> Parameters: 
+2021-05-08 09:27:13.169 DEBUG 16960 --- [http-nio-8888-exec-8] c.manster.mapper.BlogMapper.selectCount  : <==      Total: 1
+2021-05-08 09:27:13.169  INFO 16960 --- [http-nio-8888-exec-8] com.manster.aspect.LogAspect             : Result : archives
+2021-05-08 09:27:13.479  INFO 16960 --- [http-nio-8888-exec-6] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.IndexController.newblog', args=[{}]}
+2021-05-08 09:27:13.482 DEBUG 16960 --- [http-nio-8888-exec-6] c.m.mapper.BlogMapper.selectNewBlogs     : ==>  Preparing: select b.id id, b.title title from t_blog b where published = 1 order by update_time desc limit 3
+2021-05-08 09:27:13.482 DEBUG 16960 --- [http-nio-8888-exec-6] c.m.mapper.BlogMapper.selectNewBlogs     : ==> Parameters: 
+2021-05-08 09:27:13.483 DEBUG 16960 --- [http-nio-8888-exec-6] c.m.mapper.BlogMapper.selectNewBlogs     : <==      Total: 3
+2021-05-08 09:27:13.484  INFO 16960 --- [http-nio-8888-exec-6] com.manster.aspect.LogAspect             : Result : blogfragments :: newbloglist
+2021-05-08 09:27:50.945  INFO 16960 --- [http-nio-8888-exec-3] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/about', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.AboutController.about', args=[]}
+2021-05-08 09:27:50.949  INFO 16960 --- [http-nio-8888-exec-3] com.manster.aspect.LogAspect             : Result : about
+2021-05-08 09:27:51.296  INFO 16960 --- [http-nio-8888-exec-10] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.IndexController.newblog', args=[{}]}
+2021-05-08 09:27:51.299 DEBUG 16960 --- [http-nio-8888-exec-10] c.m.mapper.BlogMapper.selectNewBlogs     : ==>  Preparing: select b.id id, b.title title from t_blog b where published = 1 order by update_time desc limit 3
+2021-05-08 09:27:51.299 DEBUG 16960 --- [http-nio-8888-exec-10] c.m.mapper.BlogMapper.selectNewBlogs     : ==> Parameters: 
+2021-05-08 09:27:51.301 DEBUG 16960 --- [http-nio-8888-exec-10] c.m.mapper.BlogMapper.selectNewBlogs     : <==      Total: 3
+2021-05-08 09:27:51.301  INFO 16960 --- [http-nio-8888-exec-10] com.manster.aspect.LogAspect             : Result : blogfragments :: newbloglist
+2021-05-08 09:28:20.353  INFO 16960 --- [http-nio-8888-exec-1] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/search', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.IndexController.search', args=[1, 我们, {}]}
+2021-05-08 09:28:20.360 DEBUG 16960 --- [http-nio-8888-exec-1] c.m.m.BlogMapper.listSearchBlog_mpCount  : ==>  Preparing: SELECT COUNT(*) FROM t_blog b, t_type t, t_user u WHERE (b.title LIKE concat('%', ?, '%') OR b.description LIKE concat('%', ?, '%')) AND b.type_id = t.id AND b.user_id = u.id AND b.published = 1
+2021-05-08 09:28:20.361 DEBUG 16960 --- [http-nio-8888-exec-1] c.m.m.BlogMapper.listSearchBlog_mpCount  : ==> Parameters: 我们(String), 我们(String)
+2021-05-08 09:28:20.400 DEBUG 16960 --- [http-nio-8888-exec-1] c.m.m.BlogMapper.listSearchBlog_mpCount  : <==      Total: 1
+2021-05-08 09:28:20.401 DEBUG 16960 --- [http-nio-8888-exec-1] c.m.mapper.BlogMapper.listSearchBlog     : ==>  Preparing: select b.id id, b.title title, b.first_picture first_picture, b.views views, b.update_time update_time, b.recommend recommend, b.published published, b.type_id type_id, b.user_id userId, b.description description, t.id typeid, t.name typename, u.id uid, u.nickname nickname, u.avatar avatar from t_blog b, t_type t, t_user u where (b.title like concat ('%',?,'%') or b.description like concat ('%',?,'%')) and b.type_id = t.id and b.user_id = u.id and b.published = 1 LIMIT ?
+2021-05-08 09:28:20.401 DEBUG 16960 --- [http-nio-8888-exec-1] c.m.mapper.BlogMapper.listSearchBlog     : ==> Parameters: 我们(String), 我们(String), 5(Long)
+2021-05-08 09:28:20.402 DEBUG 16960 --- [http-nio-8888-exec-1] c.m.mapper.BlogMapper.listSearchBlog     : <==      Total: 2
+2021-05-08 09:28:20.408 DEBUG 16960 --- [http-nio-8888-exec-1] c.manster.mapper.BlogMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM t_blog WHERE (title LIKE ? OR description LIKE ?)
+2021-05-08 09:28:20.408 DEBUG 16960 --- [http-nio-8888-exec-1] c.manster.mapper.BlogMapper.selectCount  : ==> Parameters: %我们%(String), %我们%(String)
+2021-05-08 09:28:20.408 DEBUG 16960 --- [http-nio-8888-exec-1] c.manster.mapper.BlogMapper.selectCount  : <==      Total: 1
+2021-05-08 09:28:20.409  INFO 16960 --- [http-nio-8888-exec-1] com.manster.aspect.LogAspect             : Result : search
+2021-05-08 09:28:20.721  INFO 16960 --- [http-nio-8888-exec-8] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.IndexController.newblog', args=[{}]}
+2021-05-08 09:28:20.723 DEBUG 16960 --- [http-nio-8888-exec-8] c.m.mapper.BlogMapper.selectNewBlogs     : ==>  Preparing: select b.id id, b.title title from t_blog b where published = 1 order by update_time desc limit 3
+2021-05-08 09:28:20.724 DEBUG 16960 --- [http-nio-8888-exec-8] c.m.mapper.BlogMapper.selectNewBlogs     : ==> Parameters: 
+2021-05-08 09:28:20.724 DEBUG 16960 --- [http-nio-8888-exec-8] c.m.mapper.BlogMapper.selectNewBlogs     : <==      Total: 3
+2021-05-08 09:28:20.725  INFO 16960 --- [http-nio-8888-exec-8] com.manster.aspect.LogAspect             : Result : blogfragments :: newbloglist
+2021-05-08 09:28:27.605  INFO 16960 --- [http-nio-8888-exec-5] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/search', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.IndexController.search', args=[1, 我们, {}]}
+2021-05-08 09:28:27.612 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.m.BlogMapper.listSearchBlog_mpCount  : ==>  Preparing: SELECT COUNT(*) FROM t_blog b, t_type t, t_user u WHERE (b.title LIKE concat('%', ?, '%') OR b.description LIKE concat('%', ?, '%')) AND b.type_id = t.id AND b.user_id = u.id AND b.published = 1
+2021-05-08 09:28:27.612 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.m.BlogMapper.listSearchBlog_mpCount  : ==> Parameters: 我们(String), 我们(String)
+2021-05-08 09:28:27.613 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.m.BlogMapper.listSearchBlog_mpCount  : <==      Total: 1
+2021-05-08 09:28:27.614 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.BlogMapper.listSearchBlog     : ==>  Preparing: select b.id id, b.title title, b.first_picture first_picture, b.views views, b.update_time update_time, b.recommend recommend, b.published published, b.type_id type_id, b.user_id userId, b.description description, t.id typeid, t.name typename, u.id uid, u.nickname nickname, u.avatar avatar from t_blog b, t_type t, t_user u where (b.title like concat ('%',?,'%') or b.description like concat ('%',?,'%')) and b.type_id = t.id and b.user_id = u.id and b.published = 1 LIMIT ?
+2021-05-08 09:28:27.615 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.BlogMapper.listSearchBlog     : ==> Parameters: 我们(String), 我们(String), 5(Long)
+2021-05-08 09:28:27.616 DEBUG 16960 --- [http-nio-8888-exec-5] c.m.mapper.BlogMapper.listSearchBlog     : <==      Total: 2
+2021-05-08 09:28:27.620 DEBUG 16960 --- [http-nio-8888-exec-5] c.manster.mapper.BlogMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM t_blog WHERE (title LIKE ? OR description LIKE ?)
+2021-05-08 09:28:27.621 DEBUG 16960 --- [http-nio-8888-exec-5] c.manster.mapper.BlogMapper.selectCount  : ==> Parameters: %我们%(String), %我们%(String)
+2021-05-08 09:28:27.622 DEBUG 16960 --- [http-nio-8888-exec-5] c.manster.mapper.BlogMapper.selectCount  : <==      Total: 1
+2021-05-08 09:28:27.623  INFO 16960 --- [http-nio-8888-exec-5] com.manster.aspect.LogAspect             : Result : search
+2021-05-08 09:28:27.906  INFO 16960 --- [http-nio-8888-exec-10] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.IndexController.newblog', args=[{}]}
+2021-05-08 09:28:27.908 DEBUG 16960 --- [http-nio-8888-exec-10] c.m.mapper.BlogMapper.selectNewBlogs     : ==>  Preparing: select b.id id, b.title title from t_blog b where published = 1 order by update_time desc limit 3
+2021-05-08 09:28:27.909 DEBUG 16960 --- [http-nio-8888-exec-10] c.m.mapper.BlogMapper.selectNewBlogs     : ==> Parameters: 
+2021-05-08 09:28:27.910 DEBUG 16960 --- [http-nio-8888-exec-10] c.m.mapper.BlogMapper.selectNewBlogs     : <==      Total: 3
+2021-05-08 09:28:27.910  INFO 16960 --- [http-nio-8888-exec-10] com.manster.aspect.LogAspect             : Result : blogfragments :: newbloglist
+2021-05-08 09:29:02.766  INFO 15544 --- [restartedMain] com.manster.AdminApplication             : Starting AdminApplication using Java 1.8.0_201 on LAPTOP-2OEBBGKT with PID 15544 (G:\git\mansterblog\admin\target\classes started by hp in G:\git\mansterblog)
+2021-05-08 09:29:02.768 DEBUG 15544 --- [restartedMain] com.manster.AdminApplication             : Running with Spring Boot v2.4.5, Spring v5.3.6
+2021-05-08 09:29:02.769  INFO 15544 --- [restartedMain] com.manster.AdminApplication             : The following profiles are active: dev
+2021-05-08 09:29:02.805  INFO 15544 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-08 09:29:02.805  INFO 15544 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-08 09:29:03.883  INFO 15544 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9000 (http)
+2021-05-08 09:29:03.890  INFO 15544 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-08 09:29:03.890  INFO 15544 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-08 09:29:03.892  INFO 15544 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2021-05-08 09:29:03.892  INFO 15544 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-05-08 09:29:03.892  INFO 15544 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-05-08 09:29:03.893  INFO 15544 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2021-05-08 09:29:03.964  INFO 15544 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-05-08 09:29:03.964  INFO 15544 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1158 ms
+2021-05-08 09:29:04.035  INFO 15544 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2021-05-08 09:29:04.259  INFO 15544 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-05-08 09:29:05.528  INFO 15544 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-08 09:29:05.603  INFO 15544 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-05-08 09:29:06.076  INFO 15544 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-05-08 09:29:06.106  INFO 15544 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9000 (http) with context path ''
+2021-05-08 09:29:06.113  INFO 15544 --- [restartedMain] com.manster.AdminApplication             : Started AdminApplication in 3.753 seconds (JVM running for 4.786)
+2021-05-08 09:29:07.899  INFO 15544 --- [http-nio-9000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-08 09:29:07.899  INFO 15544 --- [http-nio-9000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-05-08 09:29:07.900  INFO 15544 --- [http-nio-9000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-05-08 09:29:07.922  INFO 15544 --- [http-nio-9000-exec-1] com.manster.aspect.LogAspect             : Request : {url='http://localhost:9000/', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.LoginController.loginPage', args=[]}
+2021-05-08 09:29:07.927  INFO 15544 --- [http-nio-9000-exec-1] com.manster.aspect.LogAspect             : Result : login
+2021-05-08 09:29:40.782  INFO 15544 --- [http-nio-9000-exec-10] com.manster.aspect.LogAspect             : Request : {url='http://localhost:9000/admin/login', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.LoginController.login', args=[manster, 123456, org.apache.catalina.session.StandardSessionFacade@4b742767, {}]}
+2021-05-08 09:29:40.848 DEBUG 15544 --- [http-nio-9000-exec-10] com.manster.mapper.UserMapper.selectOne  : ==>  Preparing: SELECT id,nickname,username,password,email,avatar,type,create_time,update_time FROM t_user WHERE (username = ? AND password = ?)
+2021-05-08 09:29:40.867 DEBUG 15544 --- [http-nio-9000-exec-10] com.manster.mapper.UserMapper.selectOne  : ==> Parameters: manster(String), a448410bdcbb4d7cfb32830909f6aa08(String)
+2021-05-08 09:29:40.884 DEBUG 15544 --- [http-nio-9000-exec-10] com.manster.mapper.UserMapper.selectOne  : <==      Total: 1
+2021-05-08 09:29:40.887  INFO 15544 --- [http-nio-9000-exec-10] com.manster.aspect.LogAspect             : Result : main
+2021-05-08 09:29:40.963 ERROR 15544 --- [http-nio-9000-exec-10] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-9000-exec-10] Exception processing template "main": An error happened during template parsing (template: "class path resource [templates/main.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/main.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1393)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1138)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1077)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.attoparser.ParseException: Error resolving template [blogfargments], template might not exist or might not be accessible by any of the configured Template Resolvers (template: "main" - line 93, col 11)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateInputException: Error resolving template [blogfargments], template might not exist or might not be accessible by any of the configured Template Resolvers (template: "main" - line 93, col 11)
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseStandalone(TemplateManager.java:250)
+	at org.thymeleaf.standard.expression.FragmentExpression.resolveExecutedFragmentExpression(FragmentExpression.java:588)
+	at org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor.computeFragment(AbstractStandardFragmentInsertionTagProcessor.java:379)
+	at org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor.doProcess(AbstractStandardFragmentInsertionTagProcessor.java:110)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 50 common frames omitted
+
+2021-05-08 09:29:40.965 ERROR 15544 --- [http-nio-9000-exec-10] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/main.html]")] with root cause
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [blogfargments], template might not exist or might not be accessible by any of the configured Template Resolvers (template: "main" - line 93, col 11)
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseStandalone(TemplateManager.java:250)
+	at org.thymeleaf.standard.expression.FragmentExpression.resolveExecutedFragmentExpression(FragmentExpression.java:588)
+	at org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor.computeFragment(AbstractStandardFragmentInsertionTagProcessor.java:379)
+	at org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor.doProcess(AbstractStandardFragmentInsertionTagProcessor.java:110)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1393)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1138)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1077)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2021-05-08 09:29:41.000 ERROR 15544 --- [http-nio-9000-exec-10] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-9000-exec-10] Exception processing template "error/500": An error happened during template parsing (template: "class path resource [templates/error/500.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/error/500.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1393)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1138)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1077)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
+	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:352)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:177)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.attoparser.ParseException: Error resolving template [blogfargments], template might not exist or might not be accessible by any of the configured Template Resolvers (template: "error/500" - line 84, col 11)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 47 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateInputException: Error resolving template [blogfargments], template might not exist or might not be accessible by any of the configured Template Resolvers (template: "error/500" - line 84, col 11)
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseStandalone(TemplateManager.java:250)
+	at org.thymeleaf.standard.expression.FragmentExpression.resolveExecutedFragmentExpression(FragmentExpression.java:588)
+	at org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor.computeFragment(AbstractStandardFragmentInsertionTagProcessor.java:379)
+	at org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor.doProcess(AbstractStandardFragmentInsertionTagProcessor.java:110)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 49 common frames omitted
+
+2021-05-08 09:29:41.000 ERROR 15544 --- [http-nio-9000-exec-10] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] threw exception
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [blogfargments], template might not exist or might not be accessible by any of the configured Template Resolvers (template: "error/500" - line 84, col 11)
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseStandalone(TemplateManager.java:250)
+	at org.thymeleaf.standard.expression.FragmentExpression.resolveExecutedFragmentExpression(FragmentExpression.java:588)
+	at org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor.computeFragment(AbstractStandardFragmentInsertionTagProcessor.java:379)
+	at org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor.doProcess(AbstractStandardFragmentInsertionTagProcessor.java:110)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1393)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1138)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1077)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
+	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:352)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:177)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2021-05-08 09:29:41.001 ERROR 15544 --- [http-nio-9000-exec-10] o.a.c.c.C.[Tomcat].[localhost]           : Exception Processing ErrorPage[errorCode=0, location=/error]
+
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/error/500.html]")
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
+	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:352)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:177)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/error/500.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1393)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1138)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1077)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	... 36 common frames omitted
+Caused by: org.attoparser.ParseException: Error resolving template [blogfargments], template might not exist or might not be accessible by any of the configured Template Resolvers (template: "error/500" - line 84, col 11)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 47 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateInputException: Error resolving template [blogfargments], template might not exist or might not be accessible by any of the configured Template Resolvers (template: "error/500" - line 84, col 11)
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseStandalone(TemplateManager.java:250)
+	at org.thymeleaf.standard.expression.FragmentExpression.resolveExecutedFragmentExpression(FragmentExpression.java:588)
+	at org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor.computeFragment(AbstractStandardFragmentInsertionTagProcessor.java:379)
+	at org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor.doProcess(AbstractStandardFragmentInsertionTagProcessor.java:110)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 49 common frames omitted
+
+2021-05-08 09:31:28.270  INFO 15352 --- [restartedMain] com.manster.AdminApplication             : Starting AdminApplication using Java 1.8.0_201 on LAPTOP-2OEBBGKT with PID 15352 (G:\git\mansterblog\admin\target\classes started by hp in G:\git\mansterblog)
+2021-05-08 09:31:28.272 DEBUG 15352 --- [restartedMain] com.manster.AdminApplication             : Running with Spring Boot v2.4.5, Spring v5.3.6
+2021-05-08 09:31:28.273  INFO 15352 --- [restartedMain] com.manster.AdminApplication             : The following profiles are active: dev
+2021-05-08 09:31:28.315  INFO 15352 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-08 09:31:28.315  INFO 15352 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-08 09:31:29.358  INFO 15352 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9000 (http)
+2021-05-08 09:31:29.365  INFO 15352 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-08 09:31:29.365  INFO 15352 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-08 09:31:29.366  INFO 15352 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2021-05-08 09:31:29.366  INFO 15352 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-05-08 09:31:29.367  INFO 15352 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-05-08 09:31:29.369  INFO 15352 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2021-05-08 09:31:29.442  INFO 15352 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-05-08 09:31:29.442  INFO 15352 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1126 ms
+2021-05-08 09:31:29.522  INFO 15352 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2021-05-08 09:31:29.756  INFO 15352 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-05-08 09:31:31.145  INFO 15352 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-08 09:31:31.221  INFO 15352 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-05-08 09:31:31.545  INFO 15352 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-05-08 09:31:31.573  INFO 15352 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9000 (http) with context path ''
+2021-05-08 09:31:31.581  INFO 15352 --- [restartedMain] com.manster.AdminApplication             : Started AdminApplication in 3.733 seconds (JVM running for 4.729)
+2021-05-08 09:31:34.160  INFO 15352 --- [http-nio-9000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-08 09:31:34.161  INFO 15352 --- [http-nio-9000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-05-08 09:31:34.161  INFO 15352 --- [http-nio-9000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2021-05-08 09:31:34.180  INFO 15352 --- [http-nio-9000-exec-1] com.manster.aspect.LogAspect             : Request : {url='http://localhost:9000/', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.LoginController.loginPage', args=[]}
+2021-05-08 09:31:34.184  INFO 15352 --- [http-nio-9000-exec-1] com.manster.aspect.LogAspect             : Result : login
+2021-05-08 09:31:37.519  INFO 15352 --- [http-nio-9000-exec-10] com.manster.aspect.LogAspect             : Request : {url='http://localhost:9000/admin/login', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.LoginController.login', args=[manster, 123456, org.apache.catalina.session.StandardSessionFacade@9507c34, {}]}
+2021-05-08 09:31:37.582 DEBUG 15352 --- [http-nio-9000-exec-10] com.manster.mapper.UserMapper.selectOne  : ==>  Preparing: SELECT id,nickname,username,password,email,avatar,type,create_time,update_time FROM t_user WHERE (username = ? AND password = ?)
+2021-05-08 09:31:37.599 DEBUG 15352 --- [http-nio-9000-exec-10] com.manster.mapper.UserMapper.selectOne  : ==> Parameters: manster(String), a448410bdcbb4d7cfb32830909f6aa08(String)
+2021-05-08 09:31:37.616 DEBUG 15352 --- [http-nio-9000-exec-10] com.manster.mapper.UserMapper.selectOne  : <==      Total: 1
+2021-05-08 09:31:37.619  INFO 15352 --- [http-nio-9000-exec-10] com.manster.aspect.LogAspect             : Result : main
+2021-05-08 09:32:02.331  INFO 15352 --- [http-nio-9000-exec-7] com.manster.aspect.LogAspect             : Request : {url='http://localhost:9000/admin/blogs', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.BlogController.blogs', args=[1, {}]}
+2021-05-08 09:32:02.365 DEBUG 15352 --- [http-nio-9000-exec-7] c.m.mapper.BlogMapper.listBlog_mpCount   : ==>  Preparing: SELECT COUNT(*) FROM t_blog b, t_type t WHERE b.type_id = t.id
+2021-05-08 09:32:02.365 DEBUG 15352 --- [http-nio-9000-exec-7] c.m.mapper.BlogMapper.listBlog_mpCount   : ==> Parameters: 
+2021-05-08 09:32:02.367 DEBUG 15352 --- [http-nio-9000-exec-7] c.m.mapper.BlogMapper.listBlog_mpCount   : <==      Total: 1
+2021-05-08 09:32:02.372 DEBUG 15352 --- [http-nio-9000-exec-7] com.manster.mapper.BlogMapper.listBlog   : ==>  Preparing: select b.id id, b.title title, b.update_time update_time, b.recommend recommend, b.published published, b.type_id type_id, t.id typeid, t.name typename from t_blog b ,t_type t where b.type_id = t.id LIMIT ?
+2021-05-08 09:32:02.373 DEBUG 15352 --- [http-nio-9000-exec-7] com.manster.mapper.BlogMapper.listBlog   : ==> Parameters: 5(Long)
+2021-05-08 09:32:02.378 DEBUG 15352 --- [http-nio-9000-exec-7] com.manster.mapper.BlogMapper.listBlog   : <==      Total: 5
+2021-05-08 09:32:02.385 DEBUG 15352 --- [http-nio-9000-exec-7] c.manster.mapper.TypeMapper.selectList   : ==>  Preparing: SELECT id,name FROM t_type
+2021-05-08 09:32:02.386 DEBUG 15352 --- [http-nio-9000-exec-7] c.manster.mapper.TypeMapper.selectList   : ==> Parameters: 
+2021-05-08 09:32:02.388 DEBUG 15352 --- [http-nio-9000-exec-7] c.manster.mapper.TypeMapper.selectList   : <==      Total: 7
+2021-05-08 09:32:02.389  INFO 15352 --- [http-nio-9000-exec-7] com.manster.aspect.LogAspect             : Result : blogs
+2021-05-08 09:32:38.351  INFO 15352 --- [http-nio-9000-exec-1] com.manster.aspect.LogAspect             : Request : {url='http://localhost:9000/admin/blogs/input', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.BlogController.input', args=[{}]}
+2021-05-08 09:32:38.358 DEBUG 15352 --- [http-nio-9000-exec-1] c.manster.mapper.TypeMapper.selectList   : ==>  Preparing: SELECT id,name FROM t_type
+2021-05-08 09:32:38.358 DEBUG 15352 --- [http-nio-9000-exec-1] c.manster.mapper.TypeMapper.selectList   : ==> Parameters: 
+2021-05-08 09:32:38.361 DEBUG 15352 --- [http-nio-9000-exec-1] c.manster.mapper.TypeMapper.selectList   : <==      Total: 7
+2021-05-08 09:32:38.369 DEBUG 15352 --- [http-nio-9000-exec-1] com.manster.mapper.TagMapper.selectList  : ==>  Preparing: SELECT id,name FROM t_tag
+2021-05-08 09:32:38.370 DEBUG 15352 --- [http-nio-9000-exec-1] com.manster.mapper.TagMapper.selectList  : ==> Parameters: 
+2021-05-08 09:32:38.371 DEBUG 15352 --- [http-nio-9000-exec-1] com.manster.mapper.TagMapper.selectList  : <==      Total: 15
+2021-05-08 09:32:38.372  INFO 15352 --- [http-nio-9000-exec-1] com.manster.aspect.LogAspect             : Result : blogs-input
+2021-05-08 09:33:28.734  INFO 15352 --- [http-nio-9000-exec-9] com.manster.aspect.LogAspect             : Request : {url='http://localhost:9000/admin/types', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.TypeController.types', args=[1, {}]}
+2021-05-08 09:33:28.742 DEBUG 15352 --- [http-nio-9000-exec-9] c.m.m.TypeMapper.selectPage_mpCount      : ==>  Preparing: SELECT COUNT(*) FROM t_type
+2021-05-08 09:33:28.742 DEBUG 15352 --- [http-nio-9000-exec-9] c.m.m.TypeMapper.selectPage_mpCount      : ==> Parameters: 
+2021-05-08 09:33:28.744 DEBUG 15352 --- [http-nio-9000-exec-9] c.m.m.TypeMapper.selectPage_mpCount      : <==      Total: 1
+2021-05-08 09:33:28.746 DEBUG 15352 --- [http-nio-9000-exec-9] c.manster.mapper.TypeMapper.selectPage   : ==>  Preparing: SELECT id,name FROM t_type LIMIT ?
+2021-05-08 09:33:28.746 DEBUG 15352 --- [http-nio-9000-exec-9] c.manster.mapper.TypeMapper.selectPage   : ==> Parameters: 5(Long)
+2021-05-08 09:33:28.748 DEBUG 15352 --- [http-nio-9000-exec-9] c.manster.mapper.TypeMapper.selectPage   : <==      Total: 5
+2021-05-08 09:33:28.748  INFO 15352 --- [http-nio-9000-exec-9] com.manster.aspect.LogAspect             : Result : types
+2021-05-08 09:33:50.635  INFO 15352 --- [http-nio-9000-exec-6] com.manster.aspect.LogAspect             : Request : {url='http://localhost:9000/admin/types/input', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.TypeController.input', args=[{}]}
+2021-05-08 09:33:50.635  INFO 15352 --- [http-nio-9000-exec-6] com.manster.aspect.LogAspect             : Result : types-input

@@ -1,0 +1,25 @@
+spring:
+  # 数据源相关配置
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/blog?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+      username: root
+      password: 123456
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  type-aliases-package: com.manster.pojo
+  mapper-locations: classpath:com/manster/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    root: info
+    com.manster: debug
+  file:
+    path: logs/blog-dev.log
+server:
+  port: 9000

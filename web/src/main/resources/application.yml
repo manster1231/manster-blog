@@ -1,0 +1,13 @@
+spring:
+  thymeleaf:
+    cache: false # 开发时关闭缓存,不然没法看到实时页面
+    mode: HTML # 用非严格的 HTML
+    encoding: utf-8
+  profiles:
+    active: dev
+project:
+  salt: "blog"
+  pageSize: 5
+  avatar: /images/avatar.jpg
+  adminAvatar: https://picsum.photos/id/0/100/100
+  email: 1249041911@163.com
