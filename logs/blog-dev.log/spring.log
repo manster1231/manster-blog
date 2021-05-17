@@ -653,3 +653,101 @@ Caused by: org.thymeleaf.exceptions.TemplateInputException: Error resolving temp
 2021-05-08 09:33:28.748  INFO 15352 --- [http-nio-9000-exec-9] com.manster.aspect.LogAspect             : Result : types
 2021-05-08 09:33:50.635  INFO 15352 --- [http-nio-9000-exec-6] com.manster.aspect.LogAspect             : Request : {url='http://localhost:9000/admin/types/input', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.TypeController.input', args=[{}]}
 2021-05-08 09:33:50.635  INFO 15352 --- [http-nio-9000-exec-6] com.manster.aspect.LogAspect             : Result : types-input
+2021-05-08 12:20:07.004  INFO 436 --- [restartedMain] com.manster.AdminApplication             : Starting AdminApplication using Java 1.8.0_201 on LAPTOP-2OEBBGKT with PID 436 (G:\git\manster-blog\admin\target\classes started by hp in G:\git\manster-blog)
+2021-05-08 12:20:07.007 DEBUG 436 --- [restartedMain] com.manster.AdminApplication             : Running with Spring Boot v2.4.5, Spring v5.3.6
+2021-05-08 12:20:07.007  INFO 436 --- [restartedMain] com.manster.AdminApplication             : The following profiles are active: dev
+2021-05-08 12:20:07.045  INFO 436 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-08 12:20:07.045  INFO 436 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-08 12:20:08.067  INFO 436 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9000 (http)
+2021-05-08 12:20:08.074  INFO 436 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-08 12:20:08.074  INFO 436 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-08 12:20:08.076  INFO 436 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2021-05-08 12:20:08.076  INFO 436 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-05-08 12:20:08.076  INFO 436 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-05-08 12:20:08.079  INFO 436 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2021-05-08 12:20:08.153  INFO 436 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-05-08 12:20:08.153  INFO 436 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1107 ms
+2021-05-08 12:20:08.233  INFO 436 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2021-05-08 12:20:08.477  INFO 436 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-05-08 12:20:09.750  INFO 436 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-08 12:20:09.827  INFO 436 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-05-08 12:20:10.150  INFO 436 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-05-08 12:20:10.180  INFO 436 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9000 (http) with context path ''
+2021-05-08 12:20:10.188  INFO 436 --- [restartedMain] com.manster.AdminApplication             : Started AdminApplication in 3.602 seconds (JVM running for 4.602)
+2021-05-08 12:20:12.477  INFO 436 --- [http-nio-9000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-08 12:20:12.478  INFO 436 --- [http-nio-9000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-05-08 12:20:12.479  INFO 436 --- [http-nio-9000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-05-08 12:20:12.521  INFO 436 --- [http-nio-9000-exec-1] com.manster.aspect.LogAspect             : Request : {url='http://localhost:9000/', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.LoginController.loginPage', args=[]}
+2021-05-08 12:20:12.533  INFO 436 --- [http-nio-9000-exec-1] com.manster.aspect.LogAspect             : Result : login
+2021-05-08 12:20:16.085  INFO 436 --- [http-nio-9000-exec-10] com.manster.aspect.LogAspect             : Request : {url='http://localhost:9000/admin/login', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.LoginController.login', args=[manster, 123456, org.apache.catalina.session.StandardSessionFacade@139b5b70, {}]}
+2021-05-08 12:20:16.146 DEBUG 436 --- [http-nio-9000-exec-10] com.manster.mapper.UserMapper.selectOne  : ==>  Preparing: SELECT id,nickname,username,password,email,avatar,type,create_time,update_time FROM t_user WHERE (username = ? AND password = ?)
+2021-05-08 12:20:16.164 DEBUG 436 --- [http-nio-9000-exec-10] com.manster.mapper.UserMapper.selectOne  : ==> Parameters: manster(String), a448410bdcbb4d7cfb32830909f6aa08(String)
+2021-05-08 12:20:16.192 DEBUG 436 --- [http-nio-9000-exec-10] com.manster.mapper.UserMapper.selectOne  : <==      Total: 1
+2021-05-08 12:20:16.195  INFO 436 --- [http-nio-9000-exec-10] com.manster.aspect.LogAspect             : Result : main
+2021-05-08 12:20:33.448  INFO 12564 --- [restartedMain] com.manster.WebApplication               : Starting WebApplication using Java 1.8.0_201 on LAPTOP-2OEBBGKT with PID 12564 (G:\git\manster-blog\web\target\classes started by hp in G:\git\manster-blog)
+2021-05-08 12:20:33.451 DEBUG 12564 --- [restartedMain] com.manster.WebApplication               : Running with Spring Boot v2.4.5, Spring v5.3.6
+2021-05-08 12:20:33.451  INFO 12564 --- [restartedMain] com.manster.WebApplication               : The following profiles are active: dev
+2021-05-08 12:20:33.491  INFO 12564 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-08 12:20:33.491  INFO 12564 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-08 12:20:34.603  INFO 12564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-05-08 12:20:34.609  INFO 12564 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-08 12:20:34.610  INFO 12564 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-08 12:20:34.611  INFO 12564 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2021-05-08 12:20:34.612  INFO 12564 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-05-08 12:20:34.612  INFO 12564 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-05-08 12:20:34.615  INFO 12564 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2021-05-08 12:20:34.688  INFO 12564 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-05-08 12:20:34.688  INFO 12564 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1196 ms
+2021-05-08 12:20:34.768  INFO 12564 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2021-05-08 12:20:35.042  INFO 12564 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-05-08 12:20:36.277  INFO 12564 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-08 12:20:36.359  INFO 12564 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-05-08 12:20:36.678  INFO 12564 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-05-08 12:20:36.727  INFO 12564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2021-05-08 12:20:36.736  INFO 12564 --- [restartedMain] com.manster.WebApplication               : Started WebApplication in 3.707 seconds (JVM running for 4.714)
+2021-05-08 12:20:39.138  INFO 12564 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-08 12:20:39.139  INFO 12564 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-05-08 12:20:39.141  INFO 12564 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-05-08 12:20:39.197  INFO 12564 --- [http-nio-8888-exec-1] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.IndexController.index', args=[1, {}]}
+2021-05-08 12:20:39.264 DEBUG 12564 --- [http-nio-8888-exec-1] c.m.mapper.BlogMapper.listBlog_mpCount   : ==>  Preparing: SELECT COUNT(*) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND b.user_id = u.id AND b.published = 1
+2021-05-08 12:20:39.288 DEBUG 12564 --- [http-nio-8888-exec-1] c.m.mapper.BlogMapper.listBlog_mpCount   : ==> Parameters: 
+2021-05-08 12:20:39.309 DEBUG 12564 --- [http-nio-8888-exec-1] c.m.mapper.BlogMapper.listBlog_mpCount   : <==      Total: 1
+2021-05-08 12:20:39.314 DEBUG 12564 --- [http-nio-8888-exec-1] com.manster.mapper.BlogMapper.listBlog   : ==>  Preparing: select b.id id, b.title title, b.first_picture first_picture, b.views views, b.update_time update_time, b.recommend recommend, b.published published, b.type_id type_id, b.user_id userId, b.description description, t.id typeid, t.name typename, u.id uid, u.nickname nickname, u.avatar avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and b.user_id = u.id and b.published = 1 LIMIT ?
+2021-05-08 12:20:39.315 DEBUG 12564 --- [http-nio-8888-exec-1] com.manster.mapper.BlogMapper.listBlog   : ==> Parameters: 5(Long)
+2021-05-08 12:20:39.322 DEBUG 12564 --- [http-nio-8888-exec-1] com.manster.mapper.BlogMapper.listBlog   : <==      Total: 5
+2021-05-08 12:20:39.339 DEBUG 12564 --- [http-nio-8888-exec-1] c.manster.mapper.BlogMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM t_blog
+2021-05-08 12:20:39.339 DEBUG 12564 --- [http-nio-8888-exec-1] c.manster.mapper.BlogMapper.selectCount  : ==> Parameters: 
+2021-05-08 12:20:39.340 DEBUG 12564 --- [http-nio-8888-exec-1] c.manster.mapper.BlogMapper.selectCount  : <==      Total: 1
+2021-05-08 12:20:39.344 DEBUG 12564 --- [http-nio-8888-exec-1] c.manster.mapper.TypeMapper.listTypeVO   : ==>  Preparing: select t.id id, t.name name, b.id bid, b.type_id typeId from t_type t left join t_blog b on t.id = b.type_id
+2021-05-08 12:20:39.345 DEBUG 12564 --- [http-nio-8888-exec-1] c.manster.mapper.TypeMapper.listTypeVO   : ==> Parameters: 
+2021-05-08 12:20:39.348 DEBUG 12564 --- [http-nio-8888-exec-1] c.manster.mapper.TypeMapper.listTypeVO   : <==      Total: 10
+2021-05-08 12:20:39.352 DEBUG 12564 --- [http-nio-8888-exec-1] com.manster.mapper.TagMapper.listTagVO   : ==>  Preparing: select t.id id, t.name name, b.id bid from t_tag t, t_blog_tags bt, t_blog b where t.id = bt.tag_id and bt.blog_id = b.id;
+2021-05-08 12:20:39.353 DEBUG 12564 --- [http-nio-8888-exec-1] com.manster.mapper.TagMapper.listTagVO   : ==> Parameters: 
+2021-05-08 12:20:39.356 DEBUG 12564 --- [http-nio-8888-exec-1] com.manster.mapper.TagMapper.listTagVO   : <==      Total: 9
+2021-05-08 12:20:39.382 DEBUG 12564 --- [http-nio-8888-exec-1] c.manster.mapper.BlogMapper.selectList   : ==>  Preparing: SELECT id,title,content,first_picture,flag,views,appreciation,share_statement,commentabled,published,recommend,create_time,update_time,type_id,user_id,description,tag_ids FROM t_blog WHERE (published = ? AND recommend = ?)
+2021-05-08 12:20:39.383 DEBUG 12564 --- [http-nio-8888-exec-1] c.manster.mapper.BlogMapper.selectList   : ==> Parameters: 1(Integer), 1(Integer)
+2021-05-08 12:20:39.386 DEBUG 12564 --- [http-nio-8888-exec-1] c.manster.mapper.BlogMapper.selectList   : <==      Total: 5
+2021-05-08 12:20:39.387  INFO 12564 --- [http-nio-8888-exec-1] com.manster.aspect.LogAspect             : Result : index
+2021-05-08 12:20:40.218  INFO 12564 --- [http-nio-8888-exec-10] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.IndexController.newblog', args=[{}]}
+2021-05-08 12:20:40.221 DEBUG 12564 --- [http-nio-8888-exec-10] c.m.mapper.BlogMapper.selectNewBlogs     : ==>  Preparing: select b.id id, b.title title from t_blog b where published = 1 order by update_time desc limit 3
+2021-05-08 12:20:40.222 DEBUG 12564 --- [http-nio-8888-exec-10] c.m.mapper.BlogMapper.selectNewBlogs     : ==> Parameters: 
+2021-05-08 12:20:40.223 DEBUG 12564 --- [http-nio-8888-exec-10] c.m.mapper.BlogMapper.selectNewBlogs     : <==      Total: 3
+2021-05-08 12:20:40.223  INFO 12564 --- [http-nio-8888-exec-10] com.manster.aspect.LogAspect             : Result : blogfragments :: newbloglist
+2021-05-08 12:20:43.407  INFO 12564 --- [http-nio-8888-exec-6] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/blog/7', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.BlogController.blog', args=[7, {}]}
+2021-05-08 12:20:43.420 DEBUG 12564 --- [http-nio-8888-exec-6] com.manster.mapper.BlogMapper.addViews   : ==>  Preparing: update t_blog set views = views + 1 where id = ?
+2021-05-08 12:20:43.421 DEBUG 12564 --- [http-nio-8888-exec-6] com.manster.mapper.BlogMapper.addViews   : ==> Parameters: 7(Long)
+2021-05-08 12:20:43.423 DEBUG 12564 --- [http-nio-8888-exec-6] com.manster.mapper.BlogMapper.addViews   : <==    Updates: 1
+2021-05-08 12:20:43.424 DEBUG 12564 --- [http-nio-8888-exec-6] com.manster.mapper.BlogMapper.getBlogVO  : ==>  Preparing: select b.id id, b.title title, b.content content, b.first_picture first_picture, b.flag flag, b.views views, b.appreciation appreciation, b.share_statement share_statement, b.commentabled commentabled, b.update_time update_time, b.recommend recommend, b.published published, b.type_id type_id, b.user_id userId, t.id typeid, t.name typename, u.id uid, u.nickname nickname, u.avatar avatar from t_blog b, t_type t, t_user u where b.id = ? and b.type_id = t.id and b.user_id = u.id
+2021-05-08 12:20:43.424 DEBUG 12564 --- [http-nio-8888-exec-6] com.manster.mapper.BlogMapper.getBlogVO  : ==> Parameters: 7(Long)
+2021-05-08 12:20:43.426 DEBUG 12564 --- [http-nio-8888-exec-6] com.manster.mapper.BlogMapper.getBlogVO  : <==      Total: 1
+2021-05-08 12:20:43.556  INFO 12564 --- [http-nio-8888-exec-6] com.manster.aspect.LogAspect             : Result : blog
+2021-05-08 12:20:44.062  INFO 12564 --- [http-nio-8888-exec-9] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.IndexController.newblog', args=[{}]}
+2021-05-08 12:20:44.065 DEBUG 12564 --- [http-nio-8888-exec-9] c.m.mapper.BlogMapper.selectNewBlogs     : ==>  Preparing: select b.id id, b.title title from t_blog b where published = 1 order by update_time desc limit 3
+2021-05-08 12:20:44.065 DEBUG 12564 --- [http-nio-8888-exec-9] c.m.mapper.BlogMapper.selectNewBlogs     : ==> Parameters: 
+2021-05-08 12:20:44.066 DEBUG 12564 --- [http-nio-8888-exec-9] c.m.mapper.BlogMapper.selectNewBlogs     : <==      Total: 3
+2021-05-08 12:20:44.067  INFO 12564 --- [http-nio-8888-exec-9] com.manster.aspect.LogAspect             : Result : blogfragments :: newbloglist
+2021-05-08 12:20:44.411  INFO 12564 --- [http-nio-8888-exec-8] com.manster.aspect.LogAspect             : Request : {url='http://localhost:8888/comments/7', ip='0:0:0:0:0:0:0:1', classMethod='com.manster.controller.CommentController.comments', args=[7, {}]}
+2021-05-08 12:20:44.420 DEBUG 12564 --- [http-nio-8888-exec-8] c.m.mapper.CommentMapper.selectList      : ==>  Preparing: SELECT id,nickname,email,content,avatar,create_time,blog_id,parent_comment_id,admin_comment FROM t_comment WHERE (blog_id = ?) ORDER BY create_time ASC
+2021-05-08 12:20:44.420 DEBUG 12564 --- [http-nio-8888-exec-8] c.m.mapper.CommentMapper.selectList      : ==> Parameters: 7(Long)
+2021-05-08 12:20:44.422 DEBUG 12564 --- [http-nio-8888-exec-8] c.m.mapper.CommentMapper.selectList      : <==      Total: 0
+2021-05-08 12:20:44.423  INFO 12564 --- [http-nio-8888-exec-8] com.manster.aspect.LogAspect             : Result : blog :: commentList
