@@ -5,8 +5,10 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.manster.mapper.BlogAndTagsMapper;
 import com.manster.mapper.BlogMapper;
+import com.manster.mapper.CommentMapper;
 import com.manster.pojo.Blog;
 import com.manster.pojo.BlogAndTag;
+import com.manster.pojo.Comment;
 import com.manster.service.BlogService;
 import com.manster.util.TagsUtils;
 import com.manster.vo.BlogQuery;
@@ -29,6 +31,8 @@ public class BlogServiceImpl implements BlogService {
     private BlogMapper blogMapper;
     @Autowired
     private BlogAndTagsMapper blogAndTagsMapper;
+    @Autowired
+    private CommentMapper commentMapper;
 
     private List<Long> tagsId;
 
@@ -86,6 +90,8 @@ public class BlogServiceImpl implements BlogService {
     public int deleteBlog(Long id) {
         //删除该博客时，将所有中间表关于该博客的信息都删除
         blogAndTagsMapper.delete(new QueryWrapper<BlogAndTag>().eq("blog_id",id));
+        //将记录也删除
+        commentMapper.delete(new QueryWrapper<Comment>().eq("blog_id",id));
         return blogMapper.deleteById(id);
     }
 }
