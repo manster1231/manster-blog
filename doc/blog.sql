@@ -110,7 +110,12 @@ CREATE TABLE `t_user` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+/*Data for the table `t_user` */
+
+insert  into `t_user`(`id`,`nickname`,`username`,`password`,`email`,`avatar`,`type`,`create_time`,`update_time`) values
+(1,'admin','admin','a448410bdcbb4d7cfb32830909f6aa08','manster1231@163.com','https://picsum.photos/id/0/100/100',1,'2021-04-22 21:55:53','2021-04-22 21:56:01');
 
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
