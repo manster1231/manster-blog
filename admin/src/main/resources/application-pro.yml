@@ -22,4 +22,4 @@ logging:
   file:
     path: logs/blog-pro.log
 server:
-  port: 9000
+  port: 8081

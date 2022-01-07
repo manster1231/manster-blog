@@ -1,5 +1,7 @@
 body {
-	background: url(../images/escape-flight.png);
+	background: url("../images/bg.jpg") top/cover !important;
+	background-attachment: fixed !important;
+	background-repeat: no-repeat;
 }
 .mynav {
     width: 100%;
