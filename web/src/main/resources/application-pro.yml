@@ -10,16 +10,16 @@ spring:
       max-active: 20
       test-on-borrow: true
       driver-class-name: com.mysql.cj.jdbc.Driver
-  mybatis:
-    type-aliases-package: com.manster.pojo
-    mapper-locations: classpath:com/manster/mapper/*.xml
-    configuration:
-      map-underscore-to-camel-case: true
-logging:
-  level:
-    root: warn
-    com.manster: info
-  file:
-    path: logs/blog-pro.log
+mybatis:
+  type-aliases-package: com.manster.pojo
+  mapper-locations: classpath:com/manster/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
 server:
-  port: 8888
+  port: 8080
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: /var/www/blog/tomcat
+      pattern: '%h %l %u %t "%r" %s %b %D'
