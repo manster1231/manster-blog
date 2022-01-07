@@ -48,7 +48,10 @@
 				
 				<!-- 分类板 -->
 				<div class="ui attached segment m-padded-tb-large">
-					<div class="ui labeled button m-margin-tb-tiny" th:each="type : ${types}">
+					<div class="ui labeled button m-margin-tb-tiny" th:if="${types.size()<1}">
+						<span>暂无分类信息</span>
+					</div>
+					<div class="ui labeled button m-margin-tb-tiny" th:if="${types.size()>=1}" th:each="type : ${types}">
 					  <a href="#" th:href="@{/types/{id}(id=${type.id})}" class="ui button" th:classappend="${type.id==activeId} ? 'teal'">
 						  <i class="book icon"></i> <span th:text="${type.name}">思考与感悟</span>
 					  </a>

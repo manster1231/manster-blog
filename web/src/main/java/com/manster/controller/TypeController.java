@@ -40,7 +40,9 @@ public class TypeController {
         List<TypeVO> types = typeService.listTypeVO();
         //从导航栏跳过来的,就默认显示第一个
         if(id == -1){
-            id = types.get(0).getId();
+            if(types.size()>0){
+                id = types.get(0).getId();
+            }
         }
         model.addAttribute("types", types);
         IPage<BlogVO> page = blogService.listBlogByType(new Page<>(current, Long.parseLong(pageSize)), id);
